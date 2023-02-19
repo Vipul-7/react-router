@@ -7,7 +7,7 @@ function EventItem({ event }) {
     const proceed = window.confirm("Are you Sure?");
 
     if (proceed) {
-      submit(null, { method: "delete" });
+      submit(null, { method: "delete" }); // we can also use action in object if our action is defined in differrent path --> 299 lec
     }
   }
 
