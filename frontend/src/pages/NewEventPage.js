@@ -1,37 +1,37 @@
-import { json, redirect } from "react-router-dom";
+// import { json, redirect } from "react-router-dom";
 import EventForm from "../components/EventForm";
 
 const NewEventPage = () => {
-  return <EventForm />;
+  return <EventForm method='POST'/>;
 };
 
-export const action = async ({ request, params }) => {
-  const data = await request.formData();
+// export const action = async ({ request, params }) => {
+//   const data = await request.formData();
 
-  const eventData = {
-    title: data.get("title"),
-    date: data.get("date"),
-    description: data.get("description"),
-    image: data.get("image"),
-  };
+//   const eventData = {
+//     title: data.get("title"),
+//     date: data.get("date"),
+//     description: data.get("description"),
+//     image: data.get("image"),
+//   };
 
-  const response = await fetch("http://localhost:8080/events", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(eventData),
-  });
+//   const response = await fetch("http://localhost:8080/events", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(eventData),
+//   });
 
-  if(response.status === 422){
-    return response;  
-  }
+//   if(response.status === 422){
+//     return response;  
+//   }
 
-  if (!response.ok) {
-    throw json(
-      { message: "Get the error while save the data" },
-      { status: 500 }
-    );
-  }
-  return redirect("/events");
-};
+//   if (!response.ok) {
+//     throw json(
+//       { message: "Get the error while save the data" },
+//       { status: 500 }
+//     );
+//   }
+//   return redirect("/events");
+// };
 
 export default NewEventPage;
