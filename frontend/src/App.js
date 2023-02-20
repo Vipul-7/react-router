@@ -9,6 +9,7 @@ import EventDetailPage, {
 } from "./pages/EventsDetailsPage";
 import Root from "./pages/RootPage";
 import EventsRoot from "./pages/EventsRootPage";
+import NewsletterPage,{action as newsletterAction} from "./pages/NewsLaterPage";
 import ErrorPage from "./pages/ErrorPage";
 import { action as manipulateEventAction } from "./components/EventForm";
 
@@ -38,12 +39,25 @@ const router = createBrowserRouter([
                 element: <EventDetailPage />,
                 action: deleteEventAction,
               },
-              { path: "edit", element: <EditEventPage /> , action : manipulateEventAction},
+              {
+                path: "edit",
+                element: <EditEventPage />,
+                action: manipulateEventAction,
+              },
             ],
           },
 
-          { path: "new", element: <NewEventPage />, action: manipulateEventAction },
+          {
+            path: "new",
+            element: <NewEventPage />,
+            action: manipulateEventAction,
+          },
         ],
+      },
+      {
+        path: "newsletter",
+        element: <NewsletterPage />,
+        action: newsletterAction,
       },
     ],
   },
